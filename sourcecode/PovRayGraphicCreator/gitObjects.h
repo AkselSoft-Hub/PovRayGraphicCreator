@@ -24,11 +24,14 @@ public:
 class TPr_Object{
 public:
 	TLocation *mLocation;
-//	Bitmap mThumbnail;
-	string mName;
+	string mStrIconFile;	
 //	??? mColor;
 //	??? mStructure;
-private:
+	
+protected:	
+	int mID; // muss uniqu sein
+	string mName;		
+	
 	void Init();
 	void DeInit();
 public:
@@ -41,9 +44,13 @@ public:
 	TLocation getLocation(){ 
 		return *mLocation; 
 	}
+	string getIconFileName(){
+		return mStrIconFile;
+	}
 	string GetName(){
 		return  mName;
 	}
+	int getID(){ return mID; }	
 };
 
 // Kugel
@@ -53,9 +60,12 @@ private:
 	void Init();
 	void DeInit();
 public:
+	TPr_Sphere(){
+		Init();
+	}
 	int GetRadius(){
 		return mRadius;
-	}
+	}	
 };
 
 // Quader
@@ -65,6 +75,9 @@ private:
 	void Init();
 	void DeInit();
 public:
+	TPr_Box(){
+		Init();
+	}	
 	TLocation GetLocation2(){
 		return *mLocation2;
 	}
@@ -78,6 +91,9 @@ private:
 	void Init();
 	void DeInit();
 public:
+	TPr_Cylinder(){
+		Init();
+	}
 	TLocation GetLocation2(){
 		return *mLocation2;
 	}
