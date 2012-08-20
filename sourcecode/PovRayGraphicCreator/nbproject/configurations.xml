@@ -6,10 +6,11 @@
                    projectFiles="true">
       <itemPath>camera.h</itemPath>
       <itemPath>fMainGUI.h</itemPath>
-      <itemPath>gitObjects.h</itemPath>
+      <itemPath>figures.h</itemPath>
       <itemPath>graphicManager.h</itemPath>
       <itemPath>lightSource.h</itemPath>
       <itemPath>povrayImage.h</itemPath>
+      <itemPath>prObject.h</itemPath>
       <itemPath>utils.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -22,11 +23,12 @@
                    projectFiles="true">
       <itemPath>Camera.cpp</itemPath>
       <itemPath>fMainGUI.cpp</itemPath>
-      <itemPath>gitObjects.cpp</itemPath>
+      <itemPath>figures.cpp</itemPath>
       <itemPath>graphicManager.cpp</itemPath>
       <itemPath>lightSource.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
       <itemPath>povrayImage.cpp</itemPath>
+      <itemPath>prObject.cpp</itemPath>
       <itemPath>utils.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"

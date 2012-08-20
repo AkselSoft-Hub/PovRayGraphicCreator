@@ -1,4 +1,4 @@
-#include "gitObjects.h"
+#include "figures.h"
 
 #define SPHERE_STR		"Kugel"
 #define BOX_STR			"Box"
@@ -7,16 +7,6 @@
 #define BOX_IMG			"box.jpg"
 #define CYLINDER_IMG	"cylinder.jpg"
 
-
-void TPr_Object::Init(){
-	mName = "";
-	mID = -1;
-	mStrIconFile = "";
-}
-
-void TPr_Object::DeInit(){
-	
-}
 // Kugel implementieren
 void TPr_Sphere::Init(){
 	mName = SPHERE_STR;
@@ -49,3 +39,4 @@ void TPr_Cylinder::Init(){
 void TPr_Cylinder::DeInit(){
 	delete mLocation2;
 }
+

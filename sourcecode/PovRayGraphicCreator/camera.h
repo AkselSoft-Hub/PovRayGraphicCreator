@@ -8,7 +8,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "gitObjects.h"
+#include "figures.h"
 class TCamera{
 private:
 	TLocation *mLocation; // wo kamera steht

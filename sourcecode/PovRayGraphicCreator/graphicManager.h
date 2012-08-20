@@ -11,7 +11,7 @@
 #include "povrayImage.h"
 #include "lightSource.h"
 #include "camera.h"
-#include "gitObjects.h"
+#include "figures.h"
 #include <vector>
 #include <iostream>
 #include <fstream>

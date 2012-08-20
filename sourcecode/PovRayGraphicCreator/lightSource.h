@@ -8,6 +8,8 @@
 #ifndef LIGHTSOURCE_H
 #define LIGHTSOURCE_H
 
+#include "prObject.h"
+
 class TLightSource{
 private:
 	bool mshadowless;

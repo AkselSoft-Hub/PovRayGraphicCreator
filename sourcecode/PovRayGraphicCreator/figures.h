@@ -1,57 +1,14 @@
 /******************************************************************************
-** @Filename: 	gitObjects.h
+** @Filename: 	figures.h
 ** @Project: 	
-** @author:    Norman Bensmann, Brita Hentzschel 
-** @date: 17.07.2012
+** @author:		Brita Hentzschel 
+** @date:		20.08.2012
 ******************************************************************************/
-#ifndef GITOBJECTS_H
-#define GITOBJECTS_H
 
-#include <string>
+#ifndef FIGURES_H
+#define	FIGURES_H
 
-
-using namespace std;
-
-class TLocation{
-public:
-	int mX, mY, mZ;
-	TLocation(){
-		mX = mY = mZ = 0;		
-	}
-};
-
-// allgemeines PovRay Object
-class TPr_Object{
-public:
-	TLocation *mLocation;
-	string mStrIconFile;	
-//	??? mColor;
-//	??? mStructure;
-	
-protected:	
-	int mID;
-	string mName;		
-	
-	void Init();
-	void DeInit();
-public:
-	TPr_Object(){ 
-		Init();
-	};
-	~TPr_Object(){
-		DeInit();
-	}
-	TLocation getLocation(){ 
-		return *mLocation; 
-	}
-	string getIconFileName(){
-		return mStrIconFile;
-	}
-	string GetName(){
-		return  mName;
-	}
-	int getID(){ return mID; }	
-};
+#include "prObject.h"
 
 // Kugel
 class TPr_Sphere:public TPr_Object{
@@ -101,4 +58,6 @@ public:
 		return mRadius;
 	}
 };
-#endif
+
+#endif	/* FIGURES_H */
+
