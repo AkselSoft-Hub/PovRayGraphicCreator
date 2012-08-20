@@ -21,7 +21,7 @@ using namespace std;
 
 class TGraphicManager{
 private:
-	vector<TPr_Object> mFigureList;			// liste der verwendeten Figuren
+	vector<TPr_Object*> mFigureList;			// liste der verwendeten Figuren
 	TLightSource *mLightSource;// Lichtquelle
 	TCamera *mCamera;// Kameraeinstellung
 	TPRImage *mResultImage;
@@ -30,7 +30,7 @@ private:
 	void Init();
 	void DeInit();
 public:
-	vector<TPr_Object> mAvailableFigureList;	// liste aller Figuren die verfuegbar sind
+	vector<TPr_Object*> mPatternFigureList;	// liste aller Figuren die verfuegbar sind
 											// zb zum anzeigen im Treeview
 	// povray datei
 	TGraphicManager(){
@@ -39,6 +39,7 @@ public:
 	~TGraphicManager(){
 		DeInit();
 	}
+	vector<TPr_Object*> getPatternFigureList();
 	bool CreatePovrayImage();
 	bool CreatePovrayFile();
 	bool PovrayFileToImage();	

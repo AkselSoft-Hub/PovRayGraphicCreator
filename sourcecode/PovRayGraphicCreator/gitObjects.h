@@ -29,7 +29,7 @@ public:
 //	??? mStructure;
 	
 protected:	
-	int mID; // muss uniqu sein
+	int mID;
 	string mName;		
 	
 	void Init();
