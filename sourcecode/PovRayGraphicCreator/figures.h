@@ -15,12 +15,9 @@ class TPr_Sphere:public TPr_Object{
 private:
 	int mRadius;
 public:
-	TPr_Sphere(){
-		Init();
-	}
-	int GetRadius(){
-		return mRadius;
-	}	
+	TPr_Sphere(){ Init(); }
+	~TPr_Sphere(){ DeInit(); }
+	int GetRadius(){return mRadius;}	
 	void Init();
 	void DeInit();
 	
@@ -30,15 +27,12 @@ public:
 class TPr_Box:public TPr_Object{
 private:
 	TLocation *mLocation2;
-	void Init();
-	void DeInit();
 public:
-	TPr_Box(){
-		Init();
-	}	
-	TLocation GetLocation2(){
-		return *mLocation2;
-	}
+	TPr_Box(){ Init(); }	
+	~TPr_Box(){ DeInit(); }	
+	TLocation GetLocation2(){ return *mLocation2; }
+	void Init();
+	void DeInit();	
 };
 
 // Zylinder
@@ -46,18 +40,13 @@ class TPr_Cylinder:public TPr_Object{
 private:
 	TLocation *mLocation2;
 	int mRadius;
-	void Init();
-	void DeInit();
 public:
-	TPr_Cylinder(){
-		Init();
-	}
-	TLocation GetLocation2(){
-		return *mLocation2;
-	}
-	int GetRadius(){
-		return mRadius;
-	}
+ 	TPr_Cylinder(){	Init();	}
+ 	~TPr_Cylinder(){DeInit();}	
+	TLocation GetLocation2(){return *mLocation2;}
+	int GetRadius(){return mRadius;	}
+	void Init();
+	void DeInit();	
 };
 
 #endif	/* FIGURES_H */

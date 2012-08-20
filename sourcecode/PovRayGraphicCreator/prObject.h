@@ -8,6 +8,7 @@
 #define PROBJECT_H
 
 #include <string>
+#include "globalDefs.h"
 
 
 using namespace std;
@@ -25,20 +26,16 @@ class TPr_Object{
 public:
 	TLocation *mLocation;
 	string mStrIconFile;		
-protected:	
-	int mID;
+protected:		
 	string mName;		
 public:	
 	TPr_Object();
 	virtual ~TPr_Object() = 0; // hiermit wird klasse abstract
-	virtual void Init();
-	virtual void DeInit();	
+	virtual void Init() = 0;
+	virtual void DeInit() = 0;	
 	TLocation getLocation(){ return *mLocation;}
 	string getIconFileName(){return mStrIconFile;}
-	string GetName(){
-		return  mName;
-	}
-	int getID(){ return mID; }	
+	string getName(){ return  mName; }	
 };
 
 #endif

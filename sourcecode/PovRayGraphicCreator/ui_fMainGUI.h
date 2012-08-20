@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'fMainGUI.ui'
 **
-** Created: Mon 20. Aug 10:06:15 2012
+** Created: Mon 20. Aug 16:55:48 2012
 **      by: Qt User Interface Compiler version 4.6.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -43,6 +43,8 @@ public:
         __qtreewidgetitem->setText(0, QString::fromUtf8("1"));
         treePrElements->setHeaderItem(__qtreewidgetitem);
         treePrElements->setObjectName(QString::fromUtf8("treePrElements"));
+        treePrElements->setAutoExpandDelay(-1);
+        treePrElements->setAllColumnsShowFocus(false);
 
         gridLayout->addWidget(treePrElements, 0, 0, 1, 2);
 

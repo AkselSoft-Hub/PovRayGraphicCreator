@@ -2,6 +2,7 @@
 #include "lightSource.h"
 
 void TLightSource::Init(){
+	mName = LIGHT_STR;	
 	mshadowless = true;
 }
 

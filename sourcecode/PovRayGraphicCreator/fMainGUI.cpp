@@ -20,8 +20,8 @@ fMainGUI::fMainGUI() {
             SLOT(closeMyForm()) );		
 	connect(widget.treePrElements, SIGNAL(itemDoubleClicked( QTreeWidgetItem *, int )  ),
 			this, SLOT(showPopupMenue(QTreeWidgetItem *, int)) );	
-	connect(widget.treePrElements, SIGNAL(itemExpanded( QTreeWidgetItem * )),
-			this, SLOT())
+//	connect(widget.treePrElements, SIGNAL(itemExpanded( QTreeWidgetItem * )),
+//			this, SLOT());
 }
 
 fMainGUI::~fMainGUI() {
@@ -59,8 +59,9 @@ void fMainGUI::fillTreeWidget(){
 		treeList.append(new QTreeWidgetItem());				
 		
 		subItem = treeList.last();
-		subItem->setText(0, (mGraphicManager->getPatternFigureList()[i])->GetName().c_str());
-		subItem->setData(0,Qt::UserRole,mGraphicManager->getPatternFigureList()[i]->getID());
+		subItem->setText(0, (mGraphicManager->getPatternFigureList()[i])->getName().c_str());
+		// todo, daten an Knoten haengen
+		subItem->setData(0,Qt::UserRole, (mGraphicManager->getPatternFigureList()[i])->getName().c_str());
 		QString iconPath =("resourcen/"+ mGraphicManager->getPatternFigureList()[i]->getIconFileName()).c_str();
 		subItem->setIcon(1, QIcon(iconPath));
 	}

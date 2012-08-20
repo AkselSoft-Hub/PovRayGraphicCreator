@@ -7,6 +7,7 @@
       <itemPath>camera.h</itemPath>
       <itemPath>fMainGUI.h</itemPath>
       <itemPath>figures.h</itemPath>
+      <itemPath>globalDefs.h</itemPath>
       <itemPath>graphicManager.h</itemPath>
       <itemPath>lightSource.h</itemPath>
       <itemPath>povrayImage.h</itemPath>

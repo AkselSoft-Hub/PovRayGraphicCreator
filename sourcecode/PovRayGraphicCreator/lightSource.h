@@ -10,16 +10,12 @@
 
 #include "prObject.h"
 
-class TLightSource:TPr_Object{
+class TLightSource:public TPr_Object{
 private:
 	bool mshadowless;
 public:
-	TLightSource(){ 
-		Init();
-	};
-	~TLightSource(){
-		DeInit();
-	}
+	TLightSource(){  Init(); }
+	~TLightSource(){ DeInit(); }
 	void Init();
 	void DeInit();	
 };
