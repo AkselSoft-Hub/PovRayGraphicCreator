@@ -15,11 +15,13 @@ fMainGUI::fMainGUI() {
 	
 	//Popupmenue
 //	widget.treePrElements->setContextMenuPolicy(Qt::CustomContextMenu);
-	widget.treePrElements->setColumnCount(2);
+	
     connect(widget.btClose, SIGNAL(clicked()),this,
             SLOT(closeMyForm()) );		
 	connect(widget.treePrElements, SIGNAL(itemDoubleClicked( QTreeWidgetItem *, int )  ),
 			this, SLOT(showPopupMenue(QTreeWidgetItem *, int)) );	
+	connect(widget.treePrElements, SIGNAL(itemExpanded( QTreeWidgetItem * )),
+			this, SLOT())
 }
 
 fMainGUI::~fMainGUI() {
@@ -41,7 +43,8 @@ void fMainGUI::fillTreeWidget(){
 	QStringList treeHeader;
 	treeHeader.append( "Objects" );	
 	treeHeader.append( "Icons");
-		
+	
+	widget.treePrElements->setColumnCount(2);		
 	widget.treePrElements->setHeaderLabels( treeHeader );			
 	mainItem = new QTreeWidgetItem();
 	mainItem->setText(0,"figures");
@@ -74,8 +77,8 @@ void fMainGUI::fillTreeWidget(){
 	// node fuer Kamera:
 	
 	// ToDo: pruefen ob fkt:
-//	widget.treePrElements->resizeColumnToContents(0);
-//	widget.treePrElements->resizeColumnToContents(1);
+	widget.treePrElements->resizeColumnToContents(0);
+	widget.treePrElements->resizeColumnToContents(1);
 }
 
 void fMainGUI::showPopupMenue(QTreeWidgetItem* aItem, int aCol){

@@ -24,29 +24,17 @@ public:
 class TPr_Object{
 public:
 	TLocation *mLocation;
-	string mStrIconFile;	
-//	??? mColor;
-//	??? mStructure;
-	
+	string mStrIconFile;		
 protected:	
 	int mID;
 	string mName;		
-	
-	void Init();
-	void DeInit();
-public:
-	TPr_Object(){ 
-		Init();
-	};
-	~TPr_Object(){
-		DeInit();
-	}
-	TLocation getLocation(){ 
-		return *mLocation; 
-	}
-	string getIconFileName(){
-		return mStrIconFile;
-	}
+public:	
+	TPr_Object();
+	virtual ~TPr_Object() = 0; // hiermit wird klasse abstract
+	virtual void Init();
+	virtual void DeInit();	
+	TLocation getLocation(){ return *mLocation;}
+	string getIconFileName(){return mStrIconFile;}
 	string GetName(){
 		return  mName;
 	}

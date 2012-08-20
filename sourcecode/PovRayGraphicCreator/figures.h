@@ -14,8 +14,6 @@
 class TPr_Sphere:public TPr_Object{
 private:
 	int mRadius;
-	void Init();
-	void DeInit();
 public:
 	TPr_Sphere(){
 		Init();
@@ -23,6 +21,9 @@ public:
 	int GetRadius(){
 		return mRadius;
 	}	
+	void Init();
+	void DeInit();
+	
 };
 
 // Quader
