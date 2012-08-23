@@ -30,8 +30,8 @@ private:
 	void Init();
 	void DeInit();
 public:
-	vector<TPr_Object*> mPatternFigureList;	// liste aller Figuren die verfuegbar sind
-											// zb zum anzeigen im Treeview
+	vector<TPr_Object*> mListOfStandardElements;// liste aller Povray Elemente
+											//  die verfuegbar sind (zb Box, light...)
 	// povray datei
 	TGraphicManager(){
 		Init();
@@ -39,7 +39,7 @@ public:
 	~TGraphicManager(){
 		DeInit();
 	}
-	vector<TPr_Object*> getPatternFigureList();
+	vector<TPr_Object*> getListOfStandardElements();
 	bool CreatePovrayImage();
 	bool CreatePovrayFile();
 	bool PovrayFileToImage();	

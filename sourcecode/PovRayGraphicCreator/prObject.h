@@ -24,10 +24,11 @@ public:
 // allgemeines PovRay Object
 class TPr_Object{
 public:
-	TLocation *mLocation;
-	string mStrIconFile;		
+	TLocation *mLocation;		
 protected:		
-	string mName;		
+	string mName;
+	string mStrIconFile;
+	int mId;		
 public:	
 	TPr_Object();
 	virtual ~TPr_Object() = 0; // hiermit wird klasse abstract

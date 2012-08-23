@@ -3,6 +3,8 @@
 
 void TLightSource::Init(){
 	mName = LIGHT_STR;	
+	mId = LIGHT_ID;
+	mStrIconFile = LIGHT_IMG;
 	mshadowless = true;
 }
 

@@ -7,9 +7,9 @@ void TGraphicManager::Init(){
 	mCamera		 = new TCamera();	
 	mPathAndNameOfPovrayScript = "c:\\povrayScript.pov"; // Todo: hardcodet string vermeiden 
 	// alle figuren die im treeview auswaehlbar sind hier in Liste packen:
-	mPatternFigureList.push_back(new TPr_Sphere());
-	mPatternFigureList.push_back(new TPr_Box());
-	mPatternFigureList.push_back(new TPr_Cylinder());
+	mListOfStandardElements.push_back(new TPr_Sphere());
+	mListOfStandardElements.push_back(new TPr_Box());
+	mListOfStandardElements.push_back(new TPr_Cylinder());
 }
 
 void TGraphicManager::DeInit(){
@@ -17,8 +17,8 @@ void TGraphicManager::DeInit(){
 	delete mResultImage;
 	delete mCamera;	
 }
-vector<TPr_Object*> TGraphicManager::getPatternFigureList(){
-	return mPatternFigureList;
+vector<TPr_Object*> TGraphicManager::getListOfStandardElements(){
+	return mListOfStandardElements;
 }
 
 bool TGraphicManager::CreatePovrayImage(){

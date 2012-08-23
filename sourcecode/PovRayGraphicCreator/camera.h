@@ -8,14 +8,13 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "figures.h"
-class TCamera{
+#include "prObject.h"
+class TCamera:public TPr_Object{
 private:
 	TLocation *mLocation; // wo kamera steht
 	TLocation *mLookAt; // wohin Kamera schaut
 	// ToDo-> direction zb = 2*z
-	void Init();
-	void DeInit();
+
 public:
 	TCamera(){
 		Init();
@@ -23,6 +22,8 @@ public:
 	~TCamera(){
 		DeInit();
 	}
+	void Init();
+	void DeInit();	
 };
 
 #endif
