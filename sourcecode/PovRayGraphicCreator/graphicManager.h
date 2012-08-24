@@ -21,17 +21,15 @@ using namespace std;
 
 class TGraphicManager{
 private:
-	vector<TPr_Object*> mFigureList;			// liste der verwendeten Figuren
-	TLightSource *mLightSource;// Lichtquelle
-	TCamera *mCamera;// Kameraeinstellung
 	TPRImage *mResultImage;
 	string mPathAndNameOfPovrayScript;
 	ofstream mPovrayFile;
 	void Init();
 	void DeInit();
 public:
-	vector<TPr_Object*> mListOfStandardElements;// liste aller Povray Elemente
+	vector<TPr_Object*> mListOfPrElementTypes;// liste aller Povray Elemente
 											//  die verfuegbar sind (zb Box, light...)
+	vector<TPr_Object*> mListOfPrElements;			// liste der verwendeten Figuren
 	// povray datei
 	TGraphicManager(){
 		Init();
@@ -39,10 +37,12 @@ public:
 	~TGraphicManager(){
 		DeInit();
 	}
-	vector<TPr_Object*> getListOfStandardElements();
+	vector<TPr_Object*> getListOfPrElementTypes();
+	vector<TPr_Object*> getListOfPrElements();
+	bool addPrElement( TPr_Object* aElement);
 	bool CreatePovrayImage();
 	bool CreatePovrayFile();
 	bool PovrayFileToImage();	
 };
 
-#endif
+#endif	

@@ -37,6 +37,7 @@ public:
 	TLocation getLocation(){ return *mLocation;}
 	string getIconFileName(){return mStrIconFile;}
 	string getName(){ return  mName; }	
+	int getId(){ return mId;}
 };
 
 #endif

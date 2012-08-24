@@ -22,7 +22,7 @@ public:
     fMainGUI();
     virtual ~fMainGUI();
 	void fillTreeWidget();
-	void showInputMaskForTreeItem( QTreeWidgetItem* aItem);
+	void showInputMaskForPrElement( int aElementId);
 public slots:
     void closeMyForm();				
 	void showPopupMenue(QTreeWidgetItem * aItem, int aColumn);		

@@ -28,8 +28,8 @@ fMainGUI::~fMainGUI() {
 	delete mGraphicManager;
 }
 
-void fMainGUI::showInputMaskForTreeItem(QTreeWidgetItem* aItem){
-	// Anhand der ID die in item.data steht wird der PRObjType bestimmt
+void fMainGUI::showInputMaskForPrElement(int aElementId){
+	// Anhand der ID das PRelement erzeugt
 	
 }
 
@@ -54,38 +54,23 @@ void fMainGUI::fillTreeWidget(){
 	widget.treePrElements->addTopLevelItem(mainItem);
 	
 	// node fuer geometrische Obj:	
-	int nrOfFig = mGraphicManager->getListOfStandardElements().size();
+	int nrOfFig = mGraphicManager->getListOfPrElementTypes().size();
 	treeList.clear();
 	for( int i = 0; i < nrOfFig; i++){
-//		treeList.append(new QTreeWidgetItem(widget.myTreeWidget));				
-		treeList.append(new QTreeWidgetItem());				
-		
+		treeList.append(new QTreeWidgetItem());						
 		subItem = treeList.last();
 		subItem->setText( 0, 
-				(mGraphicManager->getListOfStandardElements()[i])->getName().c_str());
+				(mGraphicManager->getListOfPrElementTypes()[i])->getName().c_str());
 		// todo, daten an Knoten haengen
 		subItem->setData( 0,Qt::UserRole, 
-				(mGraphicManager->getListOfStandardElements()[i])->getName().c_str());
+				//(mGraphicManager->getListOfPrElementTypes()[i])->getName().c_str());
+				(mGraphicManager->getListOfPrElementTypes()[i])->getId() );
 		QString iconPath =( "resourcen/"+ 
-				mGraphicManager->getListOfStandardElements()[i]->getIconFileName()).c_str();
+				mGraphicManager->getListOfPrElementTypes()[i]->getIconFileName()).c_str();
 		subItem->setIcon(1, QIcon(iconPath));
 	}
 	mainItem->addChildren( treeList);	
 	widget.treePrElements->expandItem(mainItem);
-	
-	
-	// node fuer Lichtquellen:
-	mainItem = new QTreeWidgetItem();
-	mainItem->setText(0,"Light");
-
-	widget.treePrElements->addTopLevelItem(mainItem);
-	subItem = new QTreeWidgetItem();
-	subItem->setText(0,"Light1");
-	mainItem->addChild(subItem);
-	widget.treePrElements->expandItem(mainItem);
-
-	// node fuer Kamera:
-	mainItem = new QTreeWidgetItem();
 	
 	// ToDo: pruefen ob fkt:
 	widget.treePrElements->resizeColumnToContents(0);
@@ -108,23 +93,26 @@ void fMainGUI::fillTreeWidget(){
 }
 
 void fMainGUI::showPopupMenue(QTreeWidgetItem* aItem, int aCol){
-	QMenu *nodeMenu = new QMenu(widget.treePrElements);
-	
-	QAction *action_AddItem = nodeMenu->addAction("Add");
-	QAction *action_DelItem = nodeMenu->addAction("Del");	
-	connect(action_AddItem, SIGNAL(triggered()), 
-			this,SLOT(addPrElem()));
-	connect(action_DelItem, SIGNAL(triggered()), 
-			this,SLOT(delPrElem()));
-	
-	
-	nodeMenu->exec(QCursor::pos());
+	if(aItem->parent() ){
+		// Popup nur fuer nicht Toplevelitems
+		QMenu *nodeMenu = new QMenu(widget.treePrElements);
+
+		QAction *action_AddItem = nodeMenu->addAction("Add");
+		QAction *action_DelItem = nodeMenu->addAction("Del");	
+		connect(action_AddItem, SIGNAL(triggered()), 
+				this,SLOT(addPrElem()));
+		connect(action_DelItem, SIGNAL(triggered()), 
+				this,SLOT(delPrElem()));
+
+
+		nodeMenu->exec(QCursor::pos());
+	}
 }
 
 void fMainGUI::addPrElem(){	
 	// frage ab, welcher treewidgetItem markiert ist
 	QTreeWidgetItem *currItem = widget.treePrElements->currentItem();
-	showInputMaskForTreeItem(currItem);
+	showInputMaskForPrElement( (currItem->data(0,Qt::UserRole)).toInt() );
 	
 	
 	// erzeuge ein pr Object des selectierten eintrages

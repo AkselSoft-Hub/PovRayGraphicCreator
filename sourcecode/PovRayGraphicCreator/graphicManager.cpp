@@ -2,28 +2,41 @@
 
 
 void TGraphicManager::Init(){
-	mLightSource = new TLightSource();
 	mResultImage = new TPRImage();
-	mCamera		 = new TCamera();	
 	mPathAndNameOfPovrayScript = "c:\\povrayScript.pov"; // Todo: hardcodet string vermeiden 
 	// alle figuren die im treeview auswaehlbar sind hier in Liste packen:
-	mListOfStandardElements.push_back(new TPr_Sphere());
-	mListOfStandardElements.push_back(new TPr_Box());
-	mListOfStandardElements.push_back(new TPr_Cylinder());
+	mListOfPrElementTypes.push_back(new TPr_Sphere());
+	mListOfPrElementTypes.push_back(new TPr_Box());
+	mListOfPrElementTypes.push_back(new TPr_Cylinder());
+	mListOfPrElementTypes.push_back(new TLightSource());
+	mListOfPrElementTypes.push_back(new TCamera());
+	mListOfPrElements.clear();
 }
 
 void TGraphicManager::DeInit(){
-	delete mLightSource;
-	delete mResultImage;
-	delete mCamera;	
+	mListOfPrElementTypes.clear();
+	mListOfPrElements.clear();
+	delete mResultImage;	
 }
-vector<TPr_Object*> TGraphicManager::getListOfStandardElements(){
-	return mListOfStandardElements;
+vector<TPr_Object*> TGraphicManager::getListOfPrElementTypes(){
+	return mListOfPrElementTypes;
 }
 
+vector<TPr_Object*> TGraphicManager::getListOfPrElements(){
+	return mListOfPrElements;
+}
+
+bool TGraphicManager::addPrElement( TPr_Object* aElement){
+	return true;
+	try{
+		mListOfPrElements.push_back( aElement);
+	}catch(...){
+		return false;
+	}			
+}
 bool TGraphicManager::CreatePovrayImage(){
 	return false;
-   // erzeuge povRay file anhand der Figurenliste (mFigureList), der licht- und
+   // erzeuge povRay file anhand der Figurenliste (mListOfPrElements), der licht- und
 	// Kameraeinstellungen (mLightSource,mCamera)
    if( CreatePovrayFile()){
 		if(mResultImage)
